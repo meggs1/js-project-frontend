@@ -1,8 +1,10 @@
 const ulDiv = document.getElementById("list")
-const ul = document.getElementById("varietal-list")
+const varietalList = document.getElementById("varietal-list")
+const wineList = document.getElementById("wine-list")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchVarietals()
+    fetchWines()
 })
 
 const fetchVarietals = () => {
@@ -19,7 +21,28 @@ const renderVarietals = (json) => {
         <h2> ${element.name} </h2>
         <p> ${element.description}</p>
         `
-        ul.appendChild(li)
+        varietalList.appendChild(li)
+    });
+}
+
+const fetchWines = () => {
+    fetch('http://localhost:3000/wines')
+    .then(resp => resp.json())
+    .then(json => renderWines(json))
+    .catch(err => console.log(err))
+}
+
+const renderWines = (json) => {
+    json.forEach(element => {
+        const wineLi = document.createElement("li")
+        wineLi.innerHTML = `
+        <h2> ${element.name} </h2>
+        <p> ${element.price}</p>
+        <p> ${element.varietal.name}</p>
+        <p> ${element.reigon}</p>
+        <p> ${element.description}</p>
+        `
+        wineList.appendChild(wineLi)
     });
 }
 
