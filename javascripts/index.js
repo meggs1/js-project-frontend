@@ -4,28 +4,29 @@ const wineList = document.getElementById("wine-list")
 const showWinesButton = document.getElementById("show-wines")
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchVarietals()
-    fetchWines()
+    VarietalApi.fetchVarietals()
+
+    // fetchWines()
 })
 
-const fetchVarietals = () => {
-    fetch('http://localhost:3000/varietals')
-    .then(resp => resp.json())
-    .then(json => renderVarietals(json))
-    .catch(err => console.log(err))
-}
+// const fetchVarietals = () => {
+//     fetch('http://localhost:3000/varietals')
+//     .then(resp => resp.json())
+//     .then(json => renderVarietals(json))
+//     .catch(err => console.log(err))
+// }
 
-const renderVarietals = (json) => {
-    json.forEach(element => {
-        const li = document.createElement("li")
-        li.innerHTML = `
-        <h2> ${element.name} </h2>
-        <p> ${element.description}</p>
-        <button id="Show Wines"> Show Wines </button>
-        `
-        varietalList.appendChild(li)
-    });
-}
+// const renderVarietals = (json) => {
+//     json.forEach(element => {
+//         const li = document.createElement("li")
+//         li.innerHTML = `
+//         <h2> ${element.name} </h2>
+//         <p> ${element.description}</p>
+//         <button id="Show Wines"> Show Wines </button>
+//         `
+//         varietalList.appendChild(li)
+//     });
+// }
 
 const fetchWines = () => {
     fetch('http://localhost:3000/wines')
