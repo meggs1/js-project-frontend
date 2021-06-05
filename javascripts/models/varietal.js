@@ -16,11 +16,16 @@ class Varietal {
         a.id = `varietal-${this.id}`
         a.href = "#"
         a.innerText = this.name
-        p.innerText = this.description
-        h4.appendChild(a)
 
+        p.innerText = this.description
+
+        h4.appendChild(a)
         varietalList.appendChild(h4)
         varietalList.appendChild(p)
     }
+
+    // renderWines(varietal) {
+    //     varietal
+    // }
 
 }

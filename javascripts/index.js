@@ -5,6 +5,7 @@ const showWinesButton = document.getElementById("show-wines")
 
 document.addEventListener("DOMContentLoaded", () => {
     VarietalApi.fetchVarietals()
+    WineApi.fetchWines()
     // fetchWines()
 })
 
@@ -27,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 //     });
 // }
 
-const fetchWines = () => {
-    fetch('http://localhost:3000/wines')
-    .then(resp => resp.json())
-    .then(json => renderWines(json))
-    .catch(err => console.log(err))
-}
+// const fetchWines = () => {
+//     fetch('http://localhost:3000/wines')
+//     .then(resp => resp.json())
+//     .then(json => renderWines(json))
+//     .catch(err => console.log(err))
+// }
 
 const renderWines = (json) => {
     json.forEach(element => {
