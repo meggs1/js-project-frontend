@@ -5,7 +5,6 @@ const showWinesButton = document.getElementById("show-wines")
 
 document.addEventListener("DOMContentLoaded", () => {
     VarietalApi.fetchVarietals()
-
     // fetchWines()
 })
 

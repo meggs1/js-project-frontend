@@ -9,8 +9,18 @@ class Varietal {
         Varietal.all.push(this)
     }
 
-    static getAll() {
-        return this.all
+    render() {
+        const h4 = document.createElement("h4")
+        const a = document.createElement("a")
+        const p = document.createElement("p")
+        a.id = `varietal-${this.id}`
+        a.href = "#"
+        a.innerText = this.name
+        p.innerText = this.description
+        h4.appendChild(a)
+
+        varietalList.appendChild(h4)
+        varietalList.appendChild(p)
     }
 
 }

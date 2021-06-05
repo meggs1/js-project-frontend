@@ -1,3 +1,3 @@
-class wine {
-    
+class Wine {
+
 }
