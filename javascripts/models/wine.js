@@ -12,4 +12,20 @@ class Wine {
         Wine.all.push(this)
     }
 
+    renderWine() {
+        const h4 = document.createElement("h4")
+        const a = document.createElement("a")
+        const p = document.createElement("p")
+        a.id = `wine-${this.id}`
+        a.href = "#"
+        a.innerText = this.name
+        p.innerText =  `${this.price} - ${this.region} - ${this.description}`
+
+        h4.appendChild(a)
+
+        wineList.appendChild(h4)
+        wineList.appendChild(p)
+    }
+
+
 }

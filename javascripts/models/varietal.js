@@ -18,14 +18,14 @@ class Varietal {
         a.innerText = this.name
 
         p.innerText = this.description
-
         h4.appendChild(a)
+
         varietalList.appendChild(h4)
         varietalList.appendChild(p)
     }
 
-    // renderWines(varietal) {
-    //     varietal
+    // renderWines() {
+        
     // }
 
 }
