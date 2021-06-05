@@ -1,6 +1,7 @@
 const ulDiv = document.getElementById("list")
 const varietalList = document.getElementById("varietal-list")
 const wineList = document.getElementById("wine-list")
+const showWinesButton = document.getElementById("show-wines")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchVarietals()
@@ -20,6 +21,7 @@ const renderVarietals = (json) => {
         li.innerHTML = `
         <h2> ${element.name} </h2>
         <p> ${element.description}</p>
+        <button id="Show Wines"> Show Wines </button>
         `
         varietalList.appendChild(li)
     });
@@ -40,9 +42,13 @@ const renderWines = (json) => {
         <p> ${element.price}</p>
         <p> ${element.varietal.name}</p>
         <p> ${element.reigon}</p>
-        <p> ${element.description}</p>
+        <p> ${element.description}</p> 
         `
         wineList.appendChild(wineLi)
     });
 }
+
+
+
+
 
