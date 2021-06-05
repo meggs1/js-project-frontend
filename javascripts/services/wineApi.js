@@ -1,4 +1,8 @@
 class WineApi {
+    constructor(baseURL) {
+        this.baseURL =`${baseURL}/wines`
+    }
+
     static fetchWines() {
         fetch('http://localhost:3000/wines')
         .then(resp => resp.json())
@@ -8,4 +12,5 @@ class WineApi {
         }))
         .catch(err => console.log(err))
     }
+
 }

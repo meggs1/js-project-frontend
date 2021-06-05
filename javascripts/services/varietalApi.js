@@ -1,4 +1,8 @@
 class VarietalApi {
+    constructor(baseURL) {
+        this.baseURL =`${baseURL}/varietals`
+    }
+
     static fetchVarietals() {
         fetch('http://localhost:3000/varietals')
         .then(resp => resp.json())
