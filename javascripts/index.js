@@ -9,9 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     WineApi.fetchWines()
 })
 
-function renderWines(varietal) {
-    varietal.getWines().forEach(element => element.render())
-}
+
 
 
 
