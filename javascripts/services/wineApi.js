@@ -1,7 +1,4 @@
 class WineApi {
-    constructor(baseURL) {
-        this.baseURL =`${baseURL}/wines`
-    }
 
     static fetchWines() {
         fetch('http://localhost:3000/wines')
@@ -12,5 +9,28 @@ class WineApi {
         }))
         .catch(err => console.log(err))
     }
+
+    static handleNewWine(e) {
+        e.preventDefault()
+        const data = {
+            name: wineName.value,
+            region: wineRegion.value,
+            description: wineDescription.value,
+            price: winePrice.value,
+            varietal_id: wineSelectVarietal.value
+        }
+        fetch('http://localhost:3000/wines', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            let wine = new Wine(json)
+        })
+    }
+
 
 }
