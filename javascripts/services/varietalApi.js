@@ -8,6 +8,7 @@ class VarietalApi {
         .then(resp => resp.json())
         .then(json => json.forEach(varietalObject => {
             let varietal = new Varietal(varietalObject)
+            varietal.addToDropDown()
             varietal.render()
         }))
 

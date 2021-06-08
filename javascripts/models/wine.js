@@ -38,8 +38,9 @@ class Wine {
             <p>Region: ${this.region} </p>
             <p>Description: ${this.description} </p>
         `
-        // parentNode says 
+        // parentNode is 'p'
         varietalAnchor.parentNode.appendChild(li)
+        // add 'new wine' button
     }
     
 

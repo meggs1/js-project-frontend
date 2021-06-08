@@ -1,5 +1,6 @@
 class Varietal {
     static all = []
+    static dropDownOptions = []
     //destructoring
     constructor({id, name, description, wines = []}) {
         this.id = id
@@ -32,6 +33,14 @@ class Varietal {
 
     renderWines = (e) => {
         this.getWines().forEach(element => element.render())
+    }
+
+    addToDropDown() {
+        const varietalOption = document.createElement("option")
+        varietalOption.value = this.id
+        varietalOption.innerText = this.name
+        wineSelectVarietal.append(varietalOption)
+
     }
 
 }
