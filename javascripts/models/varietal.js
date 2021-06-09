@@ -2,11 +2,10 @@ class Varietal {
     static all = []
     static dropDownOptions = []
     //destructoring
-    constructor({id, name, description, wines = []}) {
+    constructor({id, name, description}) {
         this.id = id
         this.name = name
         this.description = description
-        this.wines = wines
         Varietal.all.push(this)
     }
 
@@ -28,7 +27,7 @@ class Varietal {
     }
 
     getWines() {
-        return Wine.all.filter(wine => this.id === wine.varietal_id )
+        return Wine.all.filter(wine => this.id === wine.varietalId )
     }
 
     renderWines = (e) => {

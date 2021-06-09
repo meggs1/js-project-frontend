@@ -10,12 +10,13 @@ const wineDescription = document.getElementById("wine-description")
 const wineRegion = document.getElementById("wine-region")
 const wineSelectVarietal = document.getElementById("varietal_id")
 
-
 document.addEventListener("DOMContentLoaded", () => {
     VarietalApi.fetchVarietals()
     WineApi.fetchWines()
     wineForm.addEventListener("submit", WineApi.handleNewWine)
 })
+
+
 
 
 
