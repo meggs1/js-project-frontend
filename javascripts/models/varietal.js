@@ -13,16 +13,21 @@ class Varietal {
         const h3 = document.createElement("h3")
         const a = document.createElement("a")
         const p = document.createElement("p")
-
+        const newWineA = document.createElement("a")
         h3.innerText = this.name
         p.innerHTML = `
             <p>${this.description}</p>
             <a id="varietal-${this.id}" href="#">See Wines</a>
         `
+        newWineA.innerHTML = `
+        <a id="new-wine-button" href="#">Add New ${this.name}</a>
+    `
 
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
+        varietalList.appendChild(newWineA)
 
+        newWineA.addEventListener("click", Wine.showWineForm)
         p.addEventListener("click", this.renderWines)
     }
 
@@ -38,7 +43,7 @@ class Varietal {
         const varietalOption = document.createElement("option")
         varietalOption.value = this.id
         varietalOption.innerText = this.name
-        wineSelectVarietal.append(varietalOption)
+        // wineSelectVarietal.append(varietalOption)
 
     }
 
