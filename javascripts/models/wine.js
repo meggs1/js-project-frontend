@@ -56,16 +56,15 @@ class Wine {
         const wines = filteredWines
         .map((wine) => {
             return `
-            <li id="wine${wine.id}">
+            <li id="wine${wine.id}" class = "wine">
                 <h3>${wine.name}</h3>
-                <p>${wine.price}</p>
-                <p>${wine.region}</p>
-                <p>${wine.description}</p>
+                <p>Price: $${wine.price}</p>
+                <p>Region: ${wine.region}</p>
+                <p>Description: ${wine.description}</p>
             </li>
         `
-        })
-        .join('') // takes away comma
-    wineList.innerHTML = wines
+        }).join('') // takes away comma
+        wineList.innerHTML = wines
     }   
 
 }

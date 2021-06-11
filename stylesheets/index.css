@@ -1,3 +1,17 @@
 #search-bar {
     float: right;
 }
+
+.wine {
+    list-style-type: none;
+    background-color: #eaeaeac7;
+    border-radius: 3px;
+    padding: 10px 20px;
+    display: grid;
+
+    text-align: left;
+} 
+
+#varietal-list {
+    list-style-type: none;
+}

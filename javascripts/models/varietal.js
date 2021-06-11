@@ -6,25 +6,40 @@ class Varietal {
         this.id = id
         this.name = name
         this.description = description
-
         Varietal.all.push(this)
     }
 
     render() {
-        const h3 = document.createElement("h3")
-        const a = document.createElement("a")
-        const p = document.createElement("p")
 
-        h3.innerText = this.name
-        p.innerHTML = `
-            <p>${this.description}</p>
-            <a id="varietal-${this.id}" href="#">See Wines</a>
+        // const h3 = document.createElement("h3")
+        // // const a = document.createElement("a")
+        // const p = document.createElement("p")
+
+        // h3.innerText = this.name
+        // p.innerHTML = `
+        //     <p>${this.description}</p>
+        //     <a id="varietal-${this.id}" href="#">See Wines</a>
+        // `
+        // li.class = "varietal"
+        // li.id = `varietal-${this.id}`
+
+        // varietalList.appendChild(h3)
+        // varietalList.appendChild(p)
+
+        // p.addEventListener("click", this.renderWines)
+
+        const li = document.createElement("li")
+        
+        li.innerHTML = `
+        <li class="varietal" id="varietal-${this.id}">
+            <h3> ${this.name} </h3>
+            <p>${this.description} <a id="varietal-${this.id}" href="#">See Wines</a></p>
+            
+            </li>
         `
-
-        varietalList.appendChild(h3)
-        varietalList.appendChild(p)
-
-        p.addEventListener("click", this.renderWines)
+        
+        li.addEventListener("click", this.renderWines)
+        varietalList.appendChild(li)
 
     }
 
