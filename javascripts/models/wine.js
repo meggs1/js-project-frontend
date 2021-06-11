@@ -49,6 +49,23 @@ class Wine {
             return wine.name.toLowerCase().includes(searchString)
         })
         console.log(filteredWines)
+        Wine.displaySearchResults(filteredWines)
     }
-   
+
+    static displaySearchResults(filteredWines) {
+        const wines = filteredWines
+        .map((wine) => {
+            return `
+            <li id="wine${wine.id}">
+                <h3>${wine.name}</h3>
+                <p>${wine.price}</p>
+                <p>${wine.region}</p>
+                <p>${wine.description}</p>
+            </li>
+        `
+        })
+        .join('') // takes away comma
+    wineList.innerHTML = wines
+    }   
+
 }
