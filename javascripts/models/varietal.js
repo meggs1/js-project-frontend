@@ -19,7 +19,6 @@ class Varietal {
         p.innerHTML = `
             <p>${this.description}</p>
             <a id="varietal-${this.id}" href="#">See Wines</a>
-
         `
 
         varietalList.appendChild(h3)
@@ -42,7 +41,8 @@ class Varietal {
         varietalOption.value = this.id
         varietalOption.innerText = this.name
         wineSelectVarietal.append(varietalOption)
-
     }
+
+
 
 }
