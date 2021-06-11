@@ -9,12 +9,13 @@ const winePrice = document.getElementById("wine-price")
 const wineDescription = document.getElementById("wine-description")
 const wineRegion = document.getElementById("wine-region")
 const wineSelectVarietal = document.getElementById("varietal_id")
-const searchBar = document.getElementById("search")
+const searchBar = document.getElementById("search-bar")
 
 document.addEventListener("DOMContentLoaded", () => {
     VarietalApi.fetchVarietals()
     WineApi.fetchWines()
     wineForm.addEventListener("submit", WineApi.handleNewWine)
+    searchBar.addEventListener("keyup", Wine.handleSearch)
 })
 
 

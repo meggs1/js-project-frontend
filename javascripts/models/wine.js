@@ -41,8 +41,14 @@ class Wine {
         varietalAnchor.parentNode.appendChild(li)
         // add 'new wine' button
     }
-    
 
-       
-
+    static handleSearch(e) {
+        e.preventDefault()
+        const searchString = e.target.value.toLowerCase()
+        const filteredWines = Wine.all.filter( wine => {
+            return wine.name.toLowerCase().includes(searchString)
+        })
+        console.log(filteredWines)
+    }
+   
 }
