@@ -45,10 +45,16 @@ class Wine {
     static handleSearch(e) {
         e.preventDefault()
         const searchString = e.target.value.toLowerCase()
+
         const filteredWines = Wine.all.filter( wine => {
-            return wine.name.toLowerCase().includes(searchString)
+            if (searchString === "") {
+                wineList.style.display = "block"
+            } else {
+                return wine.name.toLowerCase().includes(searchString)
+            }
         })
-        console.log(filteredWines)
+        // console.log(filteredWines)
+
         Wine.displaySearchResults(filteredWines)
     }
 
@@ -64,6 +70,7 @@ class Wine {
             </li>
         `
         }).join('') // takes away comma
+
         wineList.innerHTML = wines
     }   
 
