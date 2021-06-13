@@ -10,41 +10,19 @@ class Varietal {
     }
 
     render() {
-
         const h3 = document.createElement("h3")
-        const a = document.createElement("a")
         const p = document.createElement("p")
-        const newWine = document.createElement("new-wine")
 
         h3.innerText = this.name
         p.innerText = this.description
-        a.innerHTML = `
-            <a id="varietal-${this.id}" href="#">See Wines</a>
+        p.innerHTML = `
+            <p> ${this.description} <a id="varietal-${this.id}-wines" href="#">See Wines</a></p>
         `
 
-        // li.class = "varietal"
-        // li.id = `varietal-${this.id}`
-
+        p.addEventListener("click", this.renderWines)
+        
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
-        varietalList.appendChild(a)
-
-
-        a.addEventListener("click", this.renderWines)
-        newWine.addEventListener("click", Wine.displayWineForm)
-
-        // const li = document.createElement("li")
-        
-        // li.innerHTML = `
-        // <li class="varietal" id="varietal-${this.id}">
-        //     <h3> ${this.name} </h3>
-        //     <p>${this.description} <a id="varietal-${this.id}" href="#">See Wines</a> <a id="varietal-${this.id}" href="#">Add Wine</a></p>
-            
-        //     </li>
-        // `
-        
-        // li.addEventListener("click", this.renderWines)
-        // varietalList.appendChild(li)
 
     }
 
@@ -53,8 +31,16 @@ class Varietal {
     }
 
     renderWines = (e) => {
-        this.getWines().forEach(element => element.render())
+        const liSibling = e.target.nextSibling
+        if (liSibling) {
+            const children = Array.from(e.target.parentNode.children)
+            const lis = children.slice(1)
+            lis.forEach((li) => li.remove())
+        } else {
+            this.getWines().forEach(element => element.render())
+        }
     }
+
 
     addToDropDown() {
         const varietalOption = document.createElement("option")

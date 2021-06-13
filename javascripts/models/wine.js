@@ -11,34 +11,23 @@ class Wine {
         Wine.all.push(this)
     }
 
-    // renderWine() {
-    //     const h4 = document.createElement("h4")
-    //     const a = document.createElement("a")
-    //     const p = document.createElement("p")
-    //     a.id = `wine-${this.id}`
-    //     a.href = "#"
-    //     a.innerText = this.name
-    //     p.innerText =  `${this.price} - ${this.region} - ${this.description}`
-
-    //     h4.appendChild(a)
-
-    //     wineList.appendChild(h4)
-    //     wineList.appendChild(p)
-    // }
-
     render() {
-        let varietalAnchor = document.getElementById(`varietal-${this.varietal_id}`)
-
+        let varietalAnchor = document.getElementById(`varietal-${this.varietal_id}-wines`)
         const li = document.createElement('li')
 
         li.innerHTML = `
-            <h4>${this.name}</h4>
-            <p>Price: $${this.price} </p>
-            <p>Region: ${this.region} </p>
-            <p>Description: ${this.description} </p>
+            <h3>${this.name}</h3>
+            <p>Price: $${this.price}</p>
+            <p>Region: ${this.region}</p>
+            <p>Description: ${this.description}</p>
+
         `
-        // parentNode is 'p'
+        li.id = `${this.id}`
+
+        
+
         varietalAnchor.parentNode.appendChild(li)
+
         // add 'new wine' button
     }
 
@@ -79,7 +68,7 @@ class Wine {
             wineForm.style.display = "block";
           } else {
             wineForm.style.display = "none";
-          }
+        }
     }
 
 }
