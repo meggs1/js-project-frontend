@@ -32,7 +32,7 @@ class Wine {
         const li = document.createElement('li')
 
         li.innerHTML = `
-            <h4><a href="#" id="wine-${this.id}">${this.name} </a></h4>
+            <h4>${this.name}</h4>
             <p>Price: $${this.price} </p>
             <p>Region: ${this.region} </p>
             <p>Description: ${this.description} </p>
@@ -54,7 +54,6 @@ class Wine {
             }
         })
         // console.log(filteredWines)
-
         Wine.displaySearchResults(filteredWines)
     }
 
@@ -73,5 +72,14 @@ class Wine {
 
         wineList.innerHTML = wines
     }   
+
+    static displayWineForm() {
+        const wineForm = document.getElementById("new-wine-section")
+        if (wineForm.style.display === "none") {
+            wineForm.style.display = "block";
+          } else {
+            wineForm.style.display = "none";
+          }
+    }
 
 }
