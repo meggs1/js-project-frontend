@@ -20,15 +20,13 @@ class Wine {
             <p>Price: $${this.price}</p>
             <p>Region: ${this.region}</p>
             <p>Description: ${this.description}</p>
-
         `
         li.id = `${this.id}`
-
-        
+        li.setAttribute('class', 'wine')
 
         varietalAnchor.parentNode.appendChild(li)
 
-        // add 'new wine' button
+
     }
 
     static handleSearch(e) {
@@ -42,7 +40,6 @@ class Wine {
                 return wine.name.toLowerCase().includes(searchString)
             }
         })
-        // console.log(filteredWines)
         Wine.displaySearchResults(filteredWines)
     }
 

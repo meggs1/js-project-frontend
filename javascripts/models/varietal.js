@@ -19,11 +19,11 @@ class Varietal {
             <p> ${this.description} <a id="varietal-${this.id}-wines" href="#">See Wines</a></p>
         `
 
-        p.addEventListener("click", this.renderWines)
+        
         
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
-
+        p.addEventListener("click", this.renderWines)
     }
 
     getWines() {
@@ -40,7 +40,6 @@ class Varietal {
             this.getWines().forEach(element => element.render())
         }
     }
-
 
     addToDropDown() {
         const varietalOption = document.createElement("option")
