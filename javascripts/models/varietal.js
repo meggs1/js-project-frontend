@@ -12,34 +12,24 @@ class Varietal {
     render() {
         const h3 = document.createElement("h3")
         const p = document.createElement("p")
+        const newWineAnchor = document.createElement("a")
         
         h3.innerText = this.name
         p.innerText = this.description
         p.innerHTML = `
             <p> ${this.description} <a id="varietal-${this.id}-wines" href="#">See Wines</a></p>
         `
-       
-        const wineForm = document.createElement('form')
-        wineForm.dataset.id = this.id
-        wineForm.innerHTML += `
-            <h3>Add a new Wine:</h3>
-            <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name"><br>
-            <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region"><br>
-            <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description"><br>
-            <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price"><br>
-            </select><br>
-            <input type="submit" value="Add Wine">
+        newWineAnchor.innerHTML = `
+            <a id="new-wine" href="#">New Wine</a>
         `
 
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
-        varietalList.appendChild(wineForm)
+        varietalList.appendChild(newWineAnchor)
+        // varietalList.appendChild(wineForm)
         p.addEventListener("click", this.renderWines)
-        wineForm.addEventListener("submit", Wine.createWine)
+        newWineAnchor.addEventListener("click", this.renderWineForm)
+    
     }
 
     getWines() {
@@ -57,12 +47,45 @@ class Varietal {
         }
     }
 
-    addToDropDown() {
-        const varietalOption = document.createElement("option")
-        varietalOption.value = this.id
-        varietalOption.innerText = this.name
-        wineSelectVarietal.append(varietalOption)
+    static displayWineForm() {
+        const wineForm = document.getElementById("wine-form")
+        if (wineForm.style.display === "none") {
+            wineForm.style.display = "block";
+          } else {
+            wineForm.style.display = "none";
+        }
     }
+
+    renderWineForm = (e) => {
+        debugger
+        let varietalAnchor = document.getElementById(`new-wine`)
+
+        wineForm.dataset.id = this.id
+        wineForm.id = "wine-form"
+        wineForm.innerHTML += `
+            <h3>Add a new Wine:</h3>
+            <label for="wine-name">Name:</label>
+            <input type="text" name="name" id="wine-name"><br>
+            <label for="wine-region">Region:</label>
+            <input type="text" name="region" id="wine-region"><br>
+            <label for="wine-description">Description:</label>
+            <input type="text" name="description" id="wine-description"><br>
+            <label for="wine-price">Price:</label>
+            <input type="number" name="price" id="wine-price"><br>
+            </select><br>
+            <input type="submit" value="Add Wine">
+        `
+        varietalAnchor.parentNode.appendChild(wineForm)
+        wineForm.addEventListener("submit", Wine.createWine)
+
+    }
+
+    // addToDropDown() {
+    //     const varietalOption = document.createElement("option")
+    //     varietalOption.value = this.id
+    //     varietalOption.innerText = this.name
+    //     wineSelectVarietal.append(varietalOption)
+    // }
 
 
 
