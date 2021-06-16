@@ -73,15 +73,5 @@ class Wine {
         wineList.innerHTML = wines
     }   
 
-    // static displayWineForm() {
-    //     const wineForm = document.getElementById("new-wine-section")
-    //     if (wineForm.style.display === "none") {
-    //         wineForm.style.display = "block";
-    //       } else {
-    //         wineForm.style.display = "none";
-    //     }
-    // }
-
-
 
 }

@@ -15,3 +15,7 @@
 #varietal-list {
     list-style-type: none;
 }
+
+#wine-form {
+    display: none;
+}

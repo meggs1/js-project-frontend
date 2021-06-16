@@ -13,7 +13,8 @@ class Varietal {
         const h3 = document.createElement("h3")
         const p = document.createElement("p")
         const newWineAnchor = document.createElement("a")
-        
+        const wineForm = document.createElement("form")
+
         h3.innerText = this.name
         p.innerText = this.description
         p.innerHTML = `
@@ -23,10 +24,30 @@ class Varietal {
             <a id="new-wine" href="#">New Wine</a>
         `
 
+        wineForm.dataset.id = this.id
+        wineForm.id = "wine-form"
+        
+        wineForm.innerHTML = `
+            <h3>Add a new Wine:</h3>
+            <label for="wine-name">Name:</label>
+            <input type="text" name="name" id="wine-name"><br>
+            <label for="wine-region">Region:</label>
+            <input type="text" name="region" id="wine-region"><br>
+            <label for="wine-description">Description:</label>
+            <input type="text" name="description" id="wine-description"><br>
+            <label for="wine-price">Price:</label>
+            <input type="number" name="price" id="wine-price"><br>
+            </select><br>
+            <input type="submit" value="Add Wine">
+        `
+
+        wineForm.addEventListener("submit", Wine.createWine)
+
+
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
         varietalList.appendChild(newWineAnchor)
-        // varietalList.appendChild(wineForm)
+        varietalList.appendChild(wineForm)
         p.addEventListener("click", this.renderWines)
         newWineAnchor.addEventListener("click", this.renderWineForm)
     
@@ -56,28 +77,13 @@ class Varietal {
         }
     }
 
-    renderWineForm = (e) => {
-        debugger
-        let varietalAnchor = document.getElementById(`new-wine`)
-
-        wineForm.dataset.id = this.id
-        wineForm.id = "wine-form"
-        wineForm.innerHTML += `
-            <h3>Add a new Wine:</h3>
-            <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name"><br>
-            <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region"><br>
-            <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description"><br>
-            <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price"><br>
-            </select><br>
-            <input type="submit" value="Add Wine">
-        `
-        varietalAnchor.parentNode.appendChild(wineForm)
-        wineForm.addEventListener("submit", Wine.createWine)
-
+    renderWineForm = (e) => {   
+        var x = document.getElementById("wine-form");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
     }
 
     // addToDropDown() {
