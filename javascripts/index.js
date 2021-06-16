@@ -15,7 +15,7 @@ const wineFormDiv = document.getElementById("wine-form-div")
 document.addEventListener("DOMContentLoaded", () => {
     VarietalApi.fetchVarietals()
     WineApi.fetchWines()
-    wineForm.addEventListener("submit", WineApi.handleNewWine)
+    // wineForm.addEventListener("submit", WineApi.handleNewWine)
 
     searchBar.addEventListener("keyup", Wine.handleSearch)
 })

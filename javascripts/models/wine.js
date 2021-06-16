@@ -25,10 +25,24 @@ class Wine {
         li.setAttribute('class', 'wine')
 
         varietalAnchor.parentNode.appendChild(li)
-
-
     }
 
+    static createWine(e) {
+        e.preventDefault()
+        debugger
+        const wineName = e.target.children[2].value
+        const wineRegion = e.target.children[4].value
+        const wineDescription = e.target.children[6].value
+        const winePrice = e.target.children[8].value
+        const varietalId = e.target.dataset.id
+        WineApi.handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId)
+    }
+
+    // static findByNameOrKeyword() {
+        
+    // }
+
+    // by name or keyword (description)
     static handleSearch(e) {
         e.preventDefault()
         const searchString = e.target.value.toLowerCase()
@@ -59,13 +73,13 @@ class Wine {
         wineList.innerHTML = wines
     }   
 
-    static displayWineForm() {
-        const wineForm = document.getElementById("new-wine-section")
-        if (wineForm.style.display === "none") {
-            wineForm.style.display = "block";
-          } else {
-            wineForm.style.display = "none";
-        }
-    }
+    // static displayWineForm() {
+    //     const wineForm = document.getElementById("new-wine-section")
+    //     if (wineForm.style.display === "none") {
+    //         wineForm.style.display = "block";
+    //       } else {
+    //         wineForm.style.display = "none";
+    //     }
+    // }
 
 }

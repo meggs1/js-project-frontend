@@ -12,18 +12,34 @@ class Varietal {
     render() {
         const h3 = document.createElement("h3")
         const p = document.createElement("p")
-
+        
         h3.innerText = this.name
         p.innerText = this.description
         p.innerHTML = `
             <p> ${this.description} <a id="varietal-${this.id}-wines" href="#">See Wines</a></p>
         `
+       
+        const wineForm = document.createElement('form')
+        wineForm.dataset.id = this.id
+        wineForm.innerHTML += `
+            <h3>Add a new Wine:</h3>
+            <label for="wine-name">Name:</label>
+            <input type="text" name="name" id="wine-name"><br>
+            <label for="wine-region">Region:</label>
+            <input type="text" name="region" id="wine-region"><br>
+            <label for="wine-description">Description:</label>
+            <input type="text" name="description" id="wine-description"><br>
+            <label for="wine-price">Price:</label>
+            <input type="number" name="price" id="wine-price"><br>
+            </select><br>
+            <input type="submit" value="Add Wine">
+        `
 
-        
-        
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
+        varietalList.appendChild(wineForm)
         p.addEventListener("click", this.renderWines)
+        wineForm.addEventListener("submit", Wine.createWine)
     }
 
     getWines() {

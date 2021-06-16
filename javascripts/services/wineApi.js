@@ -10,14 +10,13 @@ class WineApi {
         .catch(err => console.log(err))
     }
 
-    static handleNewWine(e) {
-        e.preventDefault()
+    static handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId) {
         const data = {
-            name: wineName.value,
-            region: wineRegion.value,
-            description: wineDescription.value,
-            price: winePrice.value,
-            varietal_id: wineSelectVarietal.value
+            name: wineName,
+            region: wineRegion,
+            description: wineDescription,
+            price: winePrice,
+            varietal_id: varietalId
         }
         fetch('http://localhost:3000/wines', {
             method: 'POST',
