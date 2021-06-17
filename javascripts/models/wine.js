@@ -1,7 +1,7 @@
 class Wine {
     static all = []
 
-    constructor({id, name,region, price, description, varietal}) {
+    constructor({id, name, region, price, description, varietal}) {
         this.id = id
         this.name = name
         this.price = price
@@ -28,14 +28,14 @@ class Wine {
     }
 
     static createWine(e) {
-        e.preventDefault()
         debugger
+        e.preventDefault()
         const wineName = e.target.children[2].value
-        const wineRegion = e.target.children[4].value
-        const wineDescription = e.target.children[6].value
-        const winePrice = e.target.children[8].value
+        const wineRegion = e.target.children[5].value
+        const wineDescription = e.target.children[8].value
+        const winePrice = e.target.children[11].value
         const varietalId = e.target.dataset.id
-        WineApi.handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId)
+        return WineApi.handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId)
     }
 
     // static findByNameOrKeyword() {

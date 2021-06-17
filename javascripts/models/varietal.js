@@ -25,7 +25,8 @@ class Varietal {
         `
 
         wineForm.dataset.id = this.id
-        wineForm.id = "wine-form"
+        wineForm.id = `wine-form-${this.id}`
+        wineForm.setAttribute('class', 'wine-form')
         
         wineForm.innerHTML = `
             <h3>Add a new Wine:</h3>
@@ -41,16 +42,16 @@ class Varietal {
             <input type="submit" value="Add Wine">
         `
 
-        wineForm.addEventListener("submit", Wine.createWine)
-
 
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
         varietalList.appendChild(newWineAnchor)
         varietalList.appendChild(wineForm)
         p.addEventListener("click", this.renderWines)
-        newWineAnchor.addEventListener("click", this.renderWineForm)
-    
+        newWineAnchor.addEventListener("click", this.displayWineForm)
+        
+                
+        wineForm.addEventListener("submit", Wine.createWine)
     }
 
     getWines() {
@@ -68,8 +69,8 @@ class Varietal {
         }
     }
 
-    static displayWineForm() {
-        const wineForm = document.getElementById("wine-form")
+    displayWineForm = (e) => {
+        const wineForm = document.getElementById(`wine-form-${this.id}`)
         if (wineForm.style.display === "none") {
             wineForm.style.display = "block";
           } else {
@@ -77,14 +78,15 @@ class Varietal {
         }
     }
 
-    renderWineForm = (e) => {   
-        var x = document.getElementById("wine-form");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-    }
+    // renderWineForm = (e) => {   
+    //     debugger
+    //     var x = document.getElementById("wine-form");
+    //     if (x.style.display === "none") {
+    //       x.style.display = "block";
+    //     } else {
+    //       x.style.display = "none";
+    //     }
+    // }
 
     // addToDropDown() {
     //     const varietalOption = document.createElement("option")
