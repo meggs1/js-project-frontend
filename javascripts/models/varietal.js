@@ -27,17 +27,18 @@ class Varietal {
         wineForm.dataset.id = this.id
         wineForm.id = `wine-form-${this.id}`
         wineForm.setAttribute('class', 'wine-form')
+        wineForm.setAttribute('onsubmit', 'return Wine.validateForm(this)')
         
         wineForm.innerHTML = `
             <h3>Add a new Wine:</h3>
             <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name" required><br>
+            <input type="text" name="name" id="wine-name" ><br>
             <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region" required><br>
+            <input type="text" name="region" id="wine-region" ><br>
             <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description" required><br>
+            <input type="text" name="description" id="wine-description" ><br>
             <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price" required><br>
+            <input type="number" name="price" id="wine-price" ><br>
             </select><br>
             <input type="submit" value="Add Wine">
         `

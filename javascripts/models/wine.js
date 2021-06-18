@@ -72,4 +72,16 @@ class Wine {
         wineList.innerHTML = wines
     }   
 
+    static validateForm(form) {
+        const wineName = form.querySelector("#wine-name")
+        const wineRegion = form.querySelector("#wine-region")
+        const wineDescription = form.querySelector("#wine-description")
+        const winePrice = form.querySelector("#wine-price")
+        if(wineName.value == "" || wineRegion.value == "" || wineDescription.value == "" || winePrice.value == "") {
+            alert("Error: You must fill out all fields!")
+            return false
+        }
+        return true
+    }
+
 }
