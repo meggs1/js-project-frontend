@@ -14,6 +14,8 @@ class Varietal {
         const p = document.createElement("p")
         const newWineAnchor = document.createElement("a")
         const wineForm = document.createElement("form")
+        
+        wineForm.id = `wine-form-${this.id}`
 
         h3.innerText = this.name
         p.innerText = this.description
@@ -24,25 +26,6 @@ class Varietal {
             <a id="new-wine" href="#">New Wine</a>
         `
 
-        wineForm.dataset.id = this.id
-        wineForm.id = `wine-form-${this.id}`
-        wineForm.setAttribute('class', 'wine-form')
-        wineForm.setAttribute('onsubmit', 'return Wine.validateForm(this)')
-        
-        wineForm.innerHTML = `
-            <h3>Add a new Wine:</h3>
-            <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name"><br>
-            <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region"><br>
-            <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description"><br>
-            <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price"><br>
-            </select><br>
-            <input type="submit" value="Add Wine">
-        `
-        
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
         varietalList.appendChild(newWineAnchor)
@@ -50,7 +33,6 @@ class Varietal {
         p.addEventListener("click", this.renderWines)
         newWineAnchor.addEventListener("click", this.displayWineForm)
                 
-        wineForm.addEventListener("submit", Wine.createWine)
     }
 
     getWines() {
@@ -68,11 +50,31 @@ class Varietal {
         }
     }
 
-    displayWineForm = (e) => {
+    displayWineForm = (e) => { // check why this needs to be an arrow function
         const wineForm = document.getElementById(`wine-form-${this.id}`)
+
         if (wineForm.style.display === "none") {
-            wineForm.style.display = "block";
-          } else {
+            wineForm.style.display = "block"
+            
+            wineForm.setAttribute('class', 'wine-form')
+            wineForm.setAttribute('onsubmit', 'return Wine.validateForm(this)')
+            wineForm.dataset.id = this.id
+            
+            wineForm.innerHTML = `
+            <h3>Add a new Wine:</h3>
+            <label for="wine-name">Name:</label>
+            <input type="text" name="name" id="wine-name"><br>
+            <label for="wine-region">Region:</label>
+            <input type="text" name="region" id="wine-region"><br>
+            <label for="wine-description">Description:</label>
+            <input type="text" name="description" id="wine-description"><br>
+            <label for="wine-price">Price:</label>
+            <input type="number" name="price" id="wine-price"><br>
+            </select><br>
+            <input type="submit" value="Add Wine">
+            `
+            wineForm.addEventListener("submit", Wine.createWine)
+        } else {
             wineForm.style.display = "none";
         }
     }
