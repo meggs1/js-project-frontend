@@ -80,8 +80,22 @@ class Wine {
         if(wineName.value == "" || wineRegion.value == "" || wineDescription.value == "" || winePrice.value == "") {
             alert("Error: You must fill out all fields!")
             return false
+        } else if (this.findByName(wineName.value)) {
+            alert("Error: This wine has already been added!")
+            return false
         }
+        alert("New wine added!")
         return true
     }
+
+    static findByName(name) {
+        return this.all.find(function(wine){
+            return wine.name===name
+        })
+    }
+
+    
+
+
 
 }

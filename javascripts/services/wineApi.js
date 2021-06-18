@@ -7,7 +7,7 @@ class WineApi {
              new Wine(wineObject)
             // wine.render()
         }))
-        .catch(err => console.log(err))
+        .catch(this.handleError)
     }
 
     static handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId) {
@@ -30,5 +30,6 @@ class WineApi {
             let wine = new Wine(json)
         })
     }
+
 
 }

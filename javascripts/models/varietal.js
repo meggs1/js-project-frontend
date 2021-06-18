@@ -32,13 +32,13 @@ class Varietal {
         wineForm.innerHTML = `
             <h3>Add a new Wine:</h3>
             <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name" ><br>
+            <input type="text" name="name" id="wine-name"><br>
             <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region" ><br>
+            <input type="text" name="region" id="wine-region"><br>
             <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description" ><br>
+            <input type="text" name="description" id="wine-description"><br>
             <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price" ><br>
+            <input type="number" name="price" id="wine-price"><br>
             </select><br>
             <input type="submit" value="Add Wine">
         `
