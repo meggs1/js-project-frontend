@@ -1,5 +1,6 @@
 #search-bar {
     float: right;
+    width: 20%;
 }
 
 .wine {
@@ -18,4 +19,8 @@
 
 .wine-form {
     display: none;
+    background-color: #eaeaeac7;
+    
 }
+
+

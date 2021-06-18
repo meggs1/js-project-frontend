@@ -29,19 +29,18 @@ class Wine {
 
     static createWine(e) {
         e.preventDefault()
-        const wineName = e.target.children[2].value
-        const wineRegion = e.target.children[5].value
-        const wineDescription = e.target.children[8].value
-        const winePrice = e.target.children[11].value
-        const varietalId = e.target.dataset.id
-        return WineApi.handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId)
+        debugger
+        if (Wine.validateForm(this) === true) {
+            const wineName = e.target.children[2].value
+            const wineRegion = e.target.children[5].value
+            const wineDescription = e.target.children[8].value
+            const winePrice = e.target.children[11].value
+            const varietalId = e.target.dataset.id
+
+            return WineApi.handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId)
+        }
     }
 
-    // static findByNameOrKeyword() {
-        
-    // }
-
-    // by name or keyword (description)
     static handleSearch(e) {
         e.preventDefault()
         const searchString = e.target.value.toLowerCase()
@@ -80,7 +79,7 @@ class Wine {
         if(wineName.value == "" || wineRegion.value == "" || wineDescription.value == "" || winePrice.value == "") {
             alert("Error: You must fill out all fields!")
             return false
-        } else if (this.findByName(wineName.value)) {
+        } else if (Wine.findByName(wineName.value)) {
             alert("Error: This wine has already been added!")
             return false
         }

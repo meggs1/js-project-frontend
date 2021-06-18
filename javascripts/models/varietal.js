@@ -10,12 +10,16 @@ class Varietal {
     }
 
     render() {
+        const li = document.createElement("li")
+        
         const h3 = document.createElement("h3")
         const p = document.createElement("p")
         const newWineAnchor = document.createElement("a")
         const wineForm = document.createElement("form")
         
         wineForm.id = `wine-form-${this.id}`
+        // wineForm.className = `wine-form`
+        li.id = `${this.id}`
 
         h3.innerText = this.name
         p.innerText = this.description
@@ -23,16 +27,16 @@ class Varietal {
             <p> ${this.description} <a id="varietal-${this.id}-wines" href="#">See Wines</a></p>
         `
         newWineAnchor.innerHTML = `
-            <a id="new-wine" href="#">New Wine</a>
+            <a id="new-wine" href="###">New Wine</a>
         `
 
-        varietalList.appendChild(h3)
-        varietalList.appendChild(p)
-        varietalList.appendChild(newWineAnchor)
-        varietalList.appendChild(wineForm)
+        varietalList.appendChild(li)
+        li.appendChild(h3)
+        li.appendChild(p)
+        li.appendChild(newWineAnchor)
+        li.appendChild(wineForm)
         p.addEventListener("click", this.renderWines)
         newWineAnchor.addEventListener("click", this.displayWineForm)
-                
     }
 
     getWines() {
@@ -57,23 +61,24 @@ class Varietal {
             wineForm.style.display = "block"
             
             wineForm.setAttribute('class', 'wine-form')
-            wineForm.setAttribute('onsubmit', 'return Wine.validateForm(this)')
+            // wineForm.setAttribute('onsubmit', 'return Wine.validateForm(this)')
             wineForm.dataset.id = this.id
             
             wineForm.innerHTML = `
-            <h3>Add a new Wine:</h3>
-            <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name"><br>
-            <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region"><br>
-            <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description"><br>
-            <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price"><br>
-            </select><br>
-            <input type="submit" value="Add Wine">
+                <h3>Add a new Wine:</h3>
+                <label for="wine-name">Name:</label>
+                <input type="text" name="name" id="wine-name"><br>
+                <label for="wine-region">Region:</label>
+                <input type="text" name="region" id="wine-region"><br>
+                <label for="wine-description">Description:</label>
+                <input type="textarea" name="description" id="wine-description"><br>
+                <label for="wine-price">Price:</label>
+                <input type="number" name="price" id="wine-price" step="0.01"><br>
+                </select><br>
+                <input type="submit" value="Add Wine">
             `
             wineForm.addEventListener("submit", Wine.createWine)
+            // wineForm.clear()
         } else {
             wineForm.style.display = "none";
         }
