@@ -11,7 +11,7 @@ const wineRegion = document.getElementById("wine-region")
 const wineSelectVarietal = document.getElementById("varietal_id")
 const searchBar = document.getElementById("search-bar")
 const wineFormDiv = document.getElementById("wine-form-div")
-const wineForm = document.createElement('form')
+// const wineForm = document.createElement('form')
 
 document.addEventListener("DOMContentLoaded", () => {
     VarietalApi.fetchVarietals()

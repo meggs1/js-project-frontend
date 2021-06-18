@@ -31,25 +31,23 @@ class Varietal {
         wineForm.innerHTML = `
             <h3>Add a new Wine:</h3>
             <label for="wine-name">Name:</label>
-            <input type="text" name="name" id="wine-name"><br>
+            <input type="text" name="name" id="wine-name" required><br>
             <label for="wine-region">Region:</label>
-            <input type="text" name="region" id="wine-region"><br>
+            <input type="text" name="region" id="wine-region" required><br>
             <label for="wine-description">Description:</label>
-            <input type="text" name="description" id="wine-description"><br>
+            <input type="text" name="description" id="wine-description" required><br>
             <label for="wine-price">Price:</label>
-            <input type="number" name="price" id="wine-price"><br>
+            <input type="number" name="price" id="wine-price" required><br>
             </select><br>
             <input type="submit" value="Add Wine">
         `
-
-
+        
         varietalList.appendChild(h3)
         varietalList.appendChild(p)
         varietalList.appendChild(newWineAnchor)
         varietalList.appendChild(wineForm)
         p.addEventListener("click", this.renderWines)
         newWineAnchor.addEventListener("click", this.displayWineForm)
-        
                 
         wineForm.addEventListener("submit", Wine.createWine)
     }
@@ -77,16 +75,6 @@ class Varietal {
             wineForm.style.display = "none";
         }
     }
-
-    // renderWineForm = (e) => {   
-    //     debugger
-    //     var x = document.getElementById("wine-form");
-    //     if (x.style.display === "none") {
-    //       x.style.display = "block";
-    //     } else {
-    //       x.style.display = "none";
-    //     }
-    // }
 
     // addToDropDown() {
     //     const varietalOption = document.createElement("option")

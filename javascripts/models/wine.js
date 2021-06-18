@@ -28,7 +28,6 @@ class Wine {
     }
 
     static createWine(e) {
-        debugger
         e.preventDefault()
         const wineName = e.target.children[2].value
         const wineRegion = e.target.children[5].value
@@ -72,6 +71,5 @@ class Wine {
 
         wineList.innerHTML = wines
     }   
-
 
 }
