@@ -19,7 +19,7 @@ class Varietal {
         
         wineForm.id = `wine-form-${this.id}`
         // wineForm.className = `wine-form`
-        li.id = `${this.id}`
+        li.id = `varietal-li`
 
         h3.innerText = this.name
         p.innerText = this.description
