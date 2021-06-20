@@ -11,20 +11,23 @@ class Varietal {
 
     render() {
         const li = document.createElement("li")
-        
         const h3 = document.createElement("h3")
         const p = document.createElement("p")
         const newWineAnchor = document.createElement("a")
         const wineForm = document.createElement("form")
+        const showWinesAnchor = document.createElement("a")
         
         wineForm.id = `wine-form-${this.id}`
         // wineForm.className = `wine-form`
         li.id = `varietal-li`
 
         h3.innerText = this.name
-        p.innerText = this.description
+        // p.innerText = this.description
         p.innerHTML = `
-            <p> ${this.description} <a id="varietal-${this.id}-wines" href="#">See Wines</a></p>
+            <p>${this.description}</p>
+        `
+        showWinesAnchor.innerHTML = `
+            <a id="varietal-${this.id}-wines" href="##">See Wines</a>
         `
         newWineAnchor.innerHTML = `
             <a id="new-wine" href="###">New Wine</a>
@@ -33,9 +36,11 @@ class Varietal {
         varietalList.appendChild(li)
         li.appendChild(h3)
         li.appendChild(p)
-        li.appendChild(newWineAnchor)
+        p.appendChild(showWinesAnchor)
+        p.appendChild(newWineAnchor)
         li.appendChild(wineForm)
-        p.addEventListener("click", this.renderWines)
+        showWinesAnchor.addEventListener("click", this.renderWines)
+        // p.addEventListener("click", this.renderWines)
         newWineAnchor.addEventListener("click", this.displayWineForm)
     }
 
@@ -44,14 +49,19 @@ class Varietal {
     }
 
     renderWines = (e) => {
-        const liSibling = e.target.nextSibling
-        if (liSibling) {
+        debugger
+        const wines = document.querySelector(".wine")
+
+        if (wines) {
+            //esc6
             const children = Array.from(e.target.parentNode.children)
-            const lis = children.slice(1)
-            lis.forEach((li) => li.remove())
+            const wines = children.slice(1)
+            wines.forEach((wine) => wine.remove())
         } else {
             this.getWines().forEach(element => element.render())
         }
+
+        
     }
 
     displayWineForm = (e) => { // check why this needs to be an arrow function

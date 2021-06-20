@@ -13,6 +13,7 @@ class Wine {
 
     render() {
         let varietalAnchor = document.getElementById(`varietal-${this.varietal_id}-wines`)
+
         const li = document.createElement('li')
 
         li.innerHTML = `
@@ -23,13 +24,12 @@ class Wine {
         `
         li.id = `${this.id}`
         li.setAttribute('class', 'wine')
-
+        
         varietalAnchor.parentNode.appendChild(li)
     }
 
     static createWine(e) {
         e.preventDefault()
-        debugger
         if (Wine.validateForm(this) === true) {
             const wineName = e.target.children[2].value
             const wineRegion = e.target.children[5].value
@@ -37,6 +37,7 @@ class Wine {
             const winePrice = e.target.children[11].value
             const varietalId = e.target.dataset.id
 
+            this.remove()
             return WineApi.handleNewWine(wineName, wineRegion, wineDescription, winePrice, varietalId)
         }
     }
