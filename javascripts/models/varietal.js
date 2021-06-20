@@ -1,6 +1,6 @@
 class Varietal {
     static all = []
-    static dropDownOptions = []
+    // static dropDownOptions = []
     //destructoring
     constructor({id, name, description}) {
         this.id = id
@@ -11,7 +11,7 @@ class Varietal {
 
     render() {
         const li = document.createElement("li")
-        const h3 = document.createElement("h3")
+        const h2 = document.createElement("h2")
         const p = document.createElement("p")
         const newWineAnchor = document.createElement("a")
         const wineForm = document.createElement("form")
@@ -21,7 +21,7 @@ class Varietal {
         // wineForm.className = `wine-form`
         li.id = `varietal-li`
 
-        h3.innerText = this.name
+        h2.innerText = this.name
         // p.innerText = this.description
         p.innerHTML = `
             <p>${this.description}</p>
@@ -34,7 +34,7 @@ class Varietal {
         `
 
         varietalList.appendChild(li)
-        li.appendChild(h3)
+        li.appendChild(h2)
         li.appendChild(p)
         p.appendChild(showWinesAnchor)
         p.appendChild(newWineAnchor)
@@ -76,13 +76,14 @@ class Varietal {
             
             wineForm.innerHTML = `
                 <h3>Add a new Wine:</h3>
-                <label for="wine-name">Name:</label>
+                <label for="wine-name">Name</label>
                 <input type="text" name="name" id="wine-name"><br>
-                <label for="wine-region">Region:</label>
+                <label for="wine-region">Region</label>
                 <input type="text" name="region" id="wine-region"><br>
-                <label for="wine-description">Description:</label>
-                <input type="textarea" name="description" id="wine-description"><br>
-                <label for="wine-price">Price:</label>
+                <label for="wine-description">Description</label>
+                <textarea name="description" id="wine-description"></textarea>
+                <br>
+                <label for="wine-price">Price</label>
                 <input type="number" name="price" id="wine-price" step="0.01"><br>
                 </select><br>
                 <input type="submit" value="Add Wine">
