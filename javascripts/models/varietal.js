@@ -2,6 +2,7 @@ class Varietal {
     static all = []
     // static dropDownOptions = []
     //destructoring
+
     constructor({id, name, description}) {
         this.id = id
         this.name = name
@@ -18,11 +19,9 @@ class Varietal {
         const showWinesAnchor = document.createElement("a")
         
         wineForm.id = `wine-form-${this.id}`
-        // wineForm.className = `wine-form`
         li.id = `varietal-li`
 
         h2.innerText = this.name
-        // p.innerText = this.description
         p.innerHTML = `
             <p>${this.description}</p>
         `
@@ -40,7 +39,6 @@ class Varietal {
         p.appendChild(newWineAnchor)
         li.appendChild(wineForm)
         showWinesAnchor.addEventListener("click", this.renderWines)
-        // p.addEventListener("click", this.renderWines)
         newWineAnchor.addEventListener("click", this.displayWineForm)
     }
 
