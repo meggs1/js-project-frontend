@@ -1,8 +1,6 @@
 class Varietal {
     static all = []
-    // static dropDownOptions = []
-    //destructoring
-
+    
     constructor({id, name, description}) {
         this.id = id
         this.name = name
@@ -43,33 +41,30 @@ class Varietal {
     }
 
     getWines() {
-        return Wine.all.filter(wine => this.id === wine.varietal_id )
+        return Wine.all.filter(wine => this.id === wine.varietal_id)
     }
 
     renderWines = (e) => {
-        debugger
+        e.preventDefault()
         const wines = document.querySelector(".wine")
 
         if (wines) {
-            //esc6
             const children = Array.from(e.target.parentNode.children)
             const wines = children.slice(1)
             wines.forEach((wine) => wine.remove())
         } else {
             this.getWines().forEach(element => element.render())
         }
-
-        
     }
 
-    displayWineForm = (e) => { // check why this needs to be an arrow function
+    displayWineForm = (e) => {
+        e.preventDefault()
         const wineForm = document.getElementById(`wine-form-${this.id}`)
 
         if (wineForm.style.display === "none") {
             wineForm.style.display = "block"
             
             wineForm.setAttribute('class', 'wine-form')
-            // wineForm.setAttribute('onsubmit', 'return Wine.validateForm(this)')
             wineForm.dataset.id = this.id
             
             wineForm.innerHTML = `
@@ -87,19 +82,8 @@ class Varietal {
                 <input type="submit" value="Add Wine">
             `
             wineForm.addEventListener("submit", Wine.createWine)
-            // wineForm.clear()
         } else {
             wineForm.style.display = "none";
         }
     }
-
-    // addToDropDown() {
-    //     const varietalOption = document.createElement("option")
-    //     varietalOption.value = this.id
-    //     varietalOption.innerText = this.name
-    //     wineSelectVarietal.append(varietalOption)
-    // }
-
-
-
 }

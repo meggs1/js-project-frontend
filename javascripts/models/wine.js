@@ -28,6 +28,10 @@ class Wine {
         varietalAnchor.parentNode.appendChild(li)
     }
 
+    static findByName(name) {
+        return this.all.find(wine => wine.name === name)
+    }
+
     static createWine(e) {
         e.preventDefault()
         if (Wine.validateForm(this) === true) {
@@ -57,9 +61,8 @@ class Wine {
     }
 
     static displaySearchResults(filteredWines) {
-        const wines = filteredWines
-        .map((wine) => {
-            return `
+        const wines = filteredWines.map(
+            wine => `
             <li id="wine${wine.id}" class = "wine">
                 <h3>${wine.name}</h3>
                 <p>Price: $${wine.price}</p>
@@ -67,7 +70,7 @@ class Wine {
                 <p>Description: ${wine.description}</p>
             </li>
         `
-        }).join('') // takes away comma
+        ).join('') // takes away comma
 
         wineList.innerHTML = wines
     }   
@@ -77,25 +80,17 @@ class Wine {
         const wineRegion = form.querySelector("#wine-region")
         const wineDescription = form.querySelector("#wine-description")
         const winePrice = form.querySelector("#wine-price")
-        if(wineName.value == "" || wineRegion.value == "" || wineDescription.value == "" || winePrice.value == "") {
+
+        if (wineName.value == "" || wineRegion.value == "" || wineDescription.value == "" || winePrice.value == "") {
             alert("Error: You must fill out all fields!")
             return false
         } else if (Wine.findByName(wineName.value)) {
             alert("Error: This wine has already been added!")
             return false
+        } else {
+            alert("New wine added!")
+            return true
         }
-        alert("New wine added!")
-        return true
     }
-
-    static findByName(name) {
-        return this.all.find(function(wine){
-            return wine.name===name
-        })
-    }
-
-    
-
-
 
 }
