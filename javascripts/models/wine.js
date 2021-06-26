@@ -50,7 +50,7 @@ class Wine {
             if (searchString === "") {
                 wineList.style.display = "block"
             } else {
-                return wine.name.toLowerCase().includes(searchString)
+                return wine.name.toLowerCase().includes(searchString) || wine.description.toLowerCase().includes(searchString)
             }
         })
         Wine.displaySearchResults(filteredWines)
